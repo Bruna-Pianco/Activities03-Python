@@ -15,58 +15,38 @@
 # print('----------')
 
 
-# a = int(input('digite:'))
-# b = int(input('digite:'))
-# x = 1
-# y = 1
 
+# a = int(input())
+# b = int(input())
+# x = 0
 
-# while a < b :
-#     print('Nenhuma tabuada no intervalo!')   
-# while x <= 10:
-#     print(f'''{a} x {x} = {a*x}''')
-#     x = x + 1
-# print('----------')
-# while y <= 10:
-#     print(f'''{b} x {y} = {b*y}''')
-#     y = y + 1
-# print('----------')
-
-
-
+# for num in range(1,11):
+#     if a > b :
+#         print('Nenhuma tabuada no intervalo!') 
+#     elif a == b:     
+#         print(f'{a} x {num} = {a*num}')
+#     else:
+#         print(f'{b} x {num} = {b*num}')
+#     print('----------') 
+# for num in range(1+1,11):
+#     print(f'{b} x {num} = {b*num}')
+# print('----------')  
 
 a = int(input())
 b = int(input())
 
-for c in range(1,11):
-    if a < b :
-        print('Nenhuma tabuada no intervalo!')
-    break       
-    print(f'{a} x {c} = {a*c}')
-print('----------')    
-for d in range(1,11):  
-    if a < b :
-        print('Nenhuma tabuada no intervalo!')
-    break 
-    print(f'{b} x {c} = {b*c}')
-print('----------')    
+if a > b:
+    print ('Nenhuma tabuada no intervalo!')
+else:    
+    for num in range (a, b+1):
+        for numero in range(1,11):
+            print(f'{num} x {numero} = {num*numero}')
+        print('-'*10)   
+
+   
 
 
 
 
-#a = int(input()) b = int(input()) x = 1 y = 1 if a > b: print('Nenhuma tabuada no intervalo!') for i in range (a , a+1,b ): i = i+1 while x <= 10: print(f'{a} x {x} = {ax}') x = x + 1 print('----------') while y <= 10: print(f'{b} x {y} = {by}') y = y + 1 print('----------')
 
 
-# a = int(input('digite:'))
-# b = int(input('digite:'))
-# x : int = 1
-# y : int = 1
-# if a > b: print('Nenhuma tabuada no intervalo!')
-
-# for i in range (a , a+1,b ): i = i+1
-# while x <= 10: print(f'{a} x {x} = {a*x}')
-# x = x + 1
-# print('----------')
-# while y <= 10: print(f'{b} x {y} = {b*y}')
-# y = y + 1
-# print('----------')
