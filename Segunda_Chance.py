@@ -1,6 +1,6 @@
 n = int(input())
 c = 0
-n2 = 0
+
 
 notasOriginais = []
 notasAtividades = []

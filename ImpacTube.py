@@ -37,45 +37,24 @@
 #     # TODO: Saída do programa
 #     print(f"{nome} : R${valores:.2f} ")
  
-# if nome == 'main':
-#     main()
 
-canais = [['Clow Podcast', 2700000, 500.99, "não" ],
-             ['Felipe Nelson', 3500000, 1000.25, "sim"],
-             ['Porta dos Mundos',16800000, 2000.00, "sim" ],
-             ['PodHá',2120000, 450.00, "não" ],
-             ['Winter SonNones',42400000, 200000.00, "sim" ],
-             ['Manual do Urso', 14600000, 1800.50, 'sim'],
-             ['Humorado Games', 4130000, 5000.00, 'não'],
-             ['Joãozinho TôComeçando', 950, 10.00, 'não']]
-tabela = []  
-tabela.append(canais)         
+# Quantidade de canais:
+n = int(input())
 
-def exibe_tabela(tabela):
-    for linha in tabela:
-        print(linha)
-    print()
+canais = []
+valores=[]
 
-def bonificacao(tabela):
-    for linha in tabela:
-        bonus = linha[1] + (linha[1] * linha[2] * 0.05)
-        if linha[3] == 'sim':
-            bonus += bonus * 0.10
-        print(f'{linha[0]}: R$ {bonus:.2f}')
-
-def preenche_tabela(qtd_funcionarios):
-    tabela = []
-    for i in range(qtd_funcionarios):
-        linha = input(f'Linha {i}: ').split(';')
-        linha[1] = float(linha[1])
-        linha[2] = int(linha[2])
-        # linha[3] = linha[3] == 'sim' # para transformar em boolean
-        tabela.append(linha)
-    return tabela
-
-n = int(input('Quantidade de funcionários: '))
-tabela = preenche_tabela(n)
-exibe_tabela(tabela)
-bonificacao(tabela)
-
+for i in range(1, n+1):
+    canais = input(f'Dados do {i}º canal: ').split(';')
+    valores.append(int(input("Inscritos: ")))
+    valores.append(float(input("Moneticação")))
+    valores.append(input("Premium?")) == 'sim'
+premium = float(input('Valor fixo com premium: '))
+s_premium = float(input('Valor fixo sem premium: '))
+print( "; ".join(repr(e) for e in canais ))
+print(canais, sep=' & ', end='!')
+print(*canais,valores,sep=" ")
+print(premium)
+print(s_premium)
+      
 
