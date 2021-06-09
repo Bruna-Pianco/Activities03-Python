@@ -41,8 +41,41 @@
 #     main()
 
 canais = [['Clow Podcast', 2700000, 500.99, "não" ],
-            ['Felipe Nelson', 3500000, 1000.25, "sim"],
-            ['Porta dos Mundos',16800000, 2000.00, "sim" ]
-            ['PodHá',2120000, 450.00, "não" ]
-            ['Winter SonNones',42400000, 200000.00, "sim" ]]
-            
+             ['Felipe Nelson', 3500000, 1000.25, "sim"],
+             ['Porta dos Mundos',16800000, 2000.00, "sim" ],
+             ['PodHá',2120000, 450.00, "não" ],
+             ['Winter SonNones',42400000, 200000.00, "sim" ],
+             ['Manual do Urso', 14600000, 1800.50, 'sim'],
+             ['Humorado Games', 4130000, 5000.00, 'não'],
+             ['Joãozinho TôComeçando', 950, 10.00, 'não']]
+tabela = []  
+tabela.append(canais)         
+
+def exibe_tabela(tabela):
+    for linha in tabela:
+        print(linha)
+    print()
+
+def bonificacao(tabela):
+    for linha in tabela:
+        bonus = linha[1] + (linha[1] * linha[2] * 0.05)
+        if linha[3] == 'sim':
+            bonus += bonus * 0.10
+        print(f'{linha[0]}: R$ {bonus:.2f}')
+
+def preenche_tabela(qtd_funcionarios):
+    tabela = []
+    for i in range(qtd_funcionarios):
+        linha = input(f'Linha {i}: ').split(';')
+        linha[1] = float(linha[1])
+        linha[2] = int(linha[2])
+        # linha[3] = linha[3] == 'sim' # para transformar em boolean
+        tabela.append(linha)
+    return tabela
+
+n = int(input('Quantidade de funcionários: '))
+tabela = preenche_tabela(n)
+exibe_tabela(tabela)
+bonificacao(tabela)
+
+
