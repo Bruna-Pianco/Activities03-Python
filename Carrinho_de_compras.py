@@ -1,36 +1,29 @@
-lista_produtos = []
+def adicionar(item,lista):
+   lista.append(item)
+   return lista
 
-def adicionar (lista_produtos,item=True):
-    lista_produtos.append(item)
-    lista_produtos.sort()
-    return
+def remover(item,lista):
+    try:
+        lista.remove(item)
+    except ValueError:
+        print(f'código {item} não encontrado')
 
-def remover (lista_produtos,item=True):
-    if item in lista_produtos:
-        lista_produtos.remove(item)
-    else:
-        print(f"Código {item} não encontrado")
-    return
+def exibir(lista):
+    lista.sort()
+    print(*lista, sep = " ")
 
-def exibir(lista_produtos, item=True):
-    for i in range(item):
-        print(lista_produtos[i], end=' ')
-
-
-carrinho = list(map(int,input().split()))
-carrinho.sort()
-
-comando = input().split()
-item = input().split()
+string_produtos = input('')
+list_pro = string_produtos.split(' ')
+list_pro = [int(i) for i in list_pro]
 
 while True:
     comando = input().split(' ')
-    if comando[0] =='adicionar':
-        lista_produtos = adicionar(int(comando[1]),lista_produtos)
-    elif comando[0] =='remover':
-        remover = int(comando[1],lista_produtos)
-    elif comando[0] =='exibir':
-        exibir(lista_produtos[item])
+    if comando[0] == 'adicionar':
+        list_pro = adicionar(int(comando[1]), list_pro)
+    elif comando[0] == 'remover':
+        remover(int(comando[1]), list_pro)
+    elif comando[0] == 'exibir':
+        exibir(list_pro)
     elif comando[0] == 'encerrar':
-        exibir(lista_produtos[item])
-        break    
+        exibir(list_pro)
+        break
