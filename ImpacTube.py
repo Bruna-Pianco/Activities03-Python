@@ -1,60 +1,35 @@
-# def main():
-#     # valor inteiro que representa a quantidade N (1 <= N <= 200) de canais
-#     N = int(input('Quantidade de canais: '))
- 
-#     dados_canais = []
- 
-#     # Em cada uma das N linhas seguintes serão informados os registros que
-#     # compõem a tabela
-#     for i in range(1, N+1):
-#         linha = input(f'Dados do {i}º canal: ')
- 
-#         # com os valores das colunas separados por um ponto e vírgula
-#         valores = linha.split(';')
- 
-#         # string com o nome do canal que será bonificado
-#         nome = valores[0]
- 
-#         # número natural que é a quantidade de inscritos no canal
-#         qtd_inscritos = int(valores[1])
- 
-#         # valor real simbolizando a monetização do canal no mês anterior
-#         monetizacao_anterior = float(valores[2])
- 
-#         # string 'sim' ou 'não' que indica se o canal produz conteúdo premium
-#         is_premium = valores[3] == 'sim'
- 
-#         dados_canal = (nome, qtd_inscritos, monetizacao_anterior, is_premium)
- 
-#         dados_canais.append(dados_canal)
- 
-#     # O primeiro valor é referente aos canais que possuem conteúdo premium
-#     valor_com_premium = float(input('Valor fixo com premium: '))
- 
-#     # o segundo para canais que não possuem
-#     valor_sem_premium = float(input('Valor fixo sem premium: '))
- 
-#     # TODO: Saída do programa
-#     print(f"{nome} : R${valores:.2f} ")
- 
+def coleta_canais(qtd_canais):
+    canais = []
+    for _ in range(qtd_canais):
+        nome,inscritos,monetizacao,premium = input().split(';')
+        inscritos= int(inscritos)
+        monetizacao = float(monetizacao)
+        premium = premium == 'sim'
+        canais.append([nome,inscritos,monetizacao,premium])
+    return canais 
 
-# Quantidade de canais:
-n = int(input())
+def bonificacao(canais, fixo_premium,fixo_nao_premium):
+    bonus = []
+    for canal in canais:
+        valor = canal[2]
+        if canal [3]:
+            valor += canal[1] // 1000 * fixo_premium
+        else:
+            valor +=canal[1] // 1000 * fixo_nao_premium
+        bonus.append([canal[0], valor]) 
+    return bonus         
 
-canais = []
-valores=[]
+def exibe (bonus):
+    print(5* '-')
+    print('BÔNUS')
+    print(5* '-')
+    for registro in bonus:
+        print(f'{registro[0]}: R$ {registro[1]:.2f}')
 
-for i in range(1, n+1):
-    canais = input(f'Dados do {i}º canal: ').split(';')
-    valores.append(int(input("Inscritos: ")))
-    valores.append(float(input("Moneticação")))
-    valores.append(input("Premium?")) == 'sim'
-premium = float(input('Valor fixo com premium: '))
-s_premium = float(input('Valor fixo sem premium: '))
-print( "; ".join(repr(e) for e in canais ))
-print(canais, sep=' & ', end='!')
-print(*canais,valores,sep=" ")
-print(premium)
-print(s_premium)
-      
+qtd_canais = int(input())
+canais = coleta_canais(qtd_canais)
+fixo_premium = float(input())
+fixo_nao_premium = float(input())  
+bonus = bonificacao(canais,fixo_premium,fixo_nao_premium)
+exibe(bonus)
 
